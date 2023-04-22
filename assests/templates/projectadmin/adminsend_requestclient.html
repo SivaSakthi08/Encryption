@@ -1,0 +1,277 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Mas-Encryption</title>
+       {% load static %}
+    <!-- web fonts -->
+   <!-- web fonts -->
+   <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+   <link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+   <!-- //web fonts -->
+    <!-- //web fonts -->
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+      <style>
+.dropbtn {
+  background: #1EA92D ;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+      <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  background-color:white;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+  </head>
+  <body>
+
+
+<!-- Top Menu 1 -->
+<section class="w3l-top-menu-1">
+	<div class="top-hd">
+		<div class="container">
+	<header class="row top-menu-top">
+        <h1 style="color:white;text-align:center;">MAS-Encryption and Its Applications in Privacy-Preserving Classifiers</h1>
+	</header>
+</div>
+</div>
+</section>
+<!-- //Top Menu 1 -->
+<section class="w3l-bootstrap-header">
+  <nav class="navbar navbar-expand-lg navbar-light py-lg-2 py-2">
+    <div class="container">
+
+      <!-- if logo is image enable this
+    <a class="navbar-brand" href="#index.html">
+        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+    </a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fa fa-bars"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+            <ul class="navbar-nav mx-auto mt-2" >
+              <li class="nav-item" style=" background: #1EA92D ;padding: 7px;border: none;">
+                <a class="nav-link" href="{% url 'admin_home' %}" style="color: white;font-size: 16px; ">View Product</a>
+              </li>
+
+                <li class="nav-item" style=" background: #1EA92D ;padding: 7px;border: none;">
+                <a class="nav-link" href="{% url 'adminview_clientbargain' %}" style="color: white;font-size: 16px; ">View Client Bargain</a>
+              </li>
+                                <li class="nav-item" style=" background: #1EA92D ;padding: 7px;border: none;">
+                <a class="nav-link" href="{% url 'adminview_customerbargain' %}" style="color: white;font-size: 16px; ">View Customer Bargain</a>
+              </li>
+                <li class="nav-item" style=" background: #1EA92D ;padding: 7px;border: none;">
+                <a class="nav-link" href="{% url 'view_landdetails' %}" style="color: white;font-size: 16px; ">View Land</a>
+              </li>
+                <li class="nav-item" style=" background: #1EA92D ;padding: 7px;border: none;">
+                <a class="nav-link" href="{% url 'view_customerpayment' %}" style="color: white;font-size: 16px; ">View Payment</a>
+              </li>
+
+               <li class="nav-item" style=" background: #1EA92D ;padding: 7px;border: none;">
+                <a class="nav-link" href="{% url 'admin_login' %}" style="color: white;font-size: 16px; ">Logout</a>
+              </li>
+
+
+
+            </ul>
+
+          </div>
+    </div>
+  </nav>
+</section><br>
+<section class="w3l-contact-breadcrum">
+  <div class="breadcrum-bg">
+    <div class="container py-5">
+
+    </div>
+  </div>
+</section>
+<div class="contact-form section-gap pt-5" id="contact">
+
+    <h2 style="text-align:center;">BARGAINING TO CLIENT</h2><br><br>
+<div class="container py-lg-5 py-md-4">
+
+
+         <div class="contacts12-main mb-5">
+             {% for o in uniqueresult1 %}
+             <form  method="POST">
+                  {% csrf_token %}
+                 <div class="main-input" style="width:700px;margin-left:160px;">
+                     <div class="d-grid" >
+                         <label style="font-size:20px;font-weight:bold;text-left:center;margin-top:20px;margin-left:120px;">Client Id</label>
+                         <input type="text" name="clientid" id="w3lName" value="{{o.client_id}}" class="contact-input" readonly>
+                         <label style="font-size:20px;font-weight:bold;text-left:center;margin-top:20px;margin-left:120px;">Client Name</label>
+                         <input type="text" name="client_name" value="{{o.enc_clientname}}" id="w3lPhone"  class="contact-input" readonly>
+                         <label style="font-size:20px;font-weight:bold;text-left:center;margin-top:20px;margin-left:120px;">Product Name</label>
+                         <input type="text" name="pname" value="{{o.rice_name}}" id="w3lPhone" class="contact-input" readonly>
+                         <label style="font-size:20px;font-weight:bold;text-left:center;margin-top:20px;margin-left:120px;">Location</label>
+                         <input type="text" name="district" value="{{o.district}}" id="w3lPhone" class="contact-input" readonly>
+                         <label style="font-size:20px;font-weight:bold;text-left:center;margin-top:20px;margin-left:120px;">Quantity</label>
+                         <input type="text" name="quantity" value="{{o.quantity}}" id="w3lPhone" class="contact-input" readonly>
+                         <label style="font-size:20px;font-weight:bold;text-left:center;margin-top:20px;margin-left:120px;">Price</label>
+                         <input type="text" name="amount" value="{{o.amount}}" id="w3lPhone"  class="contact-input" readonly>
+                         <label style="font-size:20px;font-weight:bold;text-left:center;margin-top:20px;margin-left:120px;">Bargaining (OR) Not</label>
+
+ <select name="bargain_field" id="w3lName" style="margin-bottom: 30px;outline: none;border: 1px solid #eee;padding: 15px 15px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--para-color);
+  width: 100%;
+  height: inherit;
+  background: #f8f9fa;
+  border-radius: 4px;
+">
+                             <option>Select Yes Or NO</option>
+                             <option value="yes">Yes</option>
+                              <option value="no">No</option>
+
+                         </select>
+                     </div>
+
+                 </div>
+                    <button class="btn btn-secondary btn-theme2" style="background:#1EA92D;margin-left:500px;">Submit</button>
+
+             </form><br>
+              {% endfor %}
+                 </div>
+
+     </div>
+    </div>
+ <!--  services section -->
+
+ <!--  //services section -->
+<!-- customers4 block -->
+
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/lightbox-plus-jquery.min.js' %}"></script>
+
+
+<!-- grids block 5 -->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<!-- //footer-28 block -->
+</section>
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+
+<!-- Template JavaScript -->
+<script src="{% static 'js/all.js' %}"></script>
+<!-- Smooth scrolling -->
+<!-- <script src="assets/js/smoothscroll.js"></script> -->
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+
+<!-- script for -->
+<script>
+  $(document).ready(function () {
+    $('.owl-one').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: true,
+      responsiveClass: true,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        480: {
+          items: 1,
+          nav: false
+        },
+        667: {
+          items: 1,
+          nav: true
+        },
+        1000: {
+          items: 1,
+          nav: true
+        }
+      }
+    })
+  })
+</script>
+<!-- //script -->
+
+</body>
+
+</html>
+<!-- // grids block 5 -->
